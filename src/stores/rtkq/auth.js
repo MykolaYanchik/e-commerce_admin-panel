@@ -21,8 +21,6 @@ const extendApi = commonApi.injectEndpoints({
         }
       },
     }),
-  }),
-  endpoints: (build) => ({
     login: build.mutation({
       query: ({ data }) => ({
         url: "/user/login",
@@ -36,7 +34,6 @@ const extendApi = commonApi.injectEndpoints({
           if (runSideEffects) runSideEffects();
         } catch (e) {
           const { error } = e;
-          console.error(error.data.message);
           dispatch(setFormErrorAction(error.data.message));
         }
       },

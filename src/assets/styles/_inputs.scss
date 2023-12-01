@@ -1,0 +1,34 @@
+input {
+  font-family: "Kanit", sans-serif;
+  outline: none;
+  background-color: $secondary-green-light;
+  border: none;
+  padding: $padding;
+  border-radius: $small-br;
+  font-size: 0.875rem;
+  width: 100%;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  box-shadow: 0 0 0 32px $secondary-green-light inset !important;
+  -webkit-text-fill-color: $main-dark;
+}
+
+.input-container {
+  width: 100%;
+  padding-bottom: 1rem;
+  position: relative;
+}
+
+.input-error {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-weight: 200;
+  padding-left: 0.75rem;
+  font-size: 0.75rem;
+  color: $error-color;
+}

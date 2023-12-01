@@ -1,0 +1,5 @@
+@mixin glass-bg {
+  box-shadow: 0 4px 30px $main-green-dark-05;
+  backdrop-filter: blur(2px);
+  border: 1px solid $main-green-dark;
+}

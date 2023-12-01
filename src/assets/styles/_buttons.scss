@@ -1,0 +1,20 @@
+button {
+  user-select: none;
+  border: none;
+  outline: none;
+  font-family: "Kanit", sans-serif;
+  cursor: pointer;
+}
+
+.main-button {
+  background-color: $main-green;
+  color: $secondary-green-light;
+  padding: $padding;
+  border-radius: $small-br;
+  text-transform: uppercase;
+  transition: $transition;
+  font-size: 0.875rem;
+  &:hover {
+    background-color: $main-green-dark;
+  }
+}
