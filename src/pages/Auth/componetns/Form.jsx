@@ -29,7 +29,6 @@ const validation = {
 export default function Form() {
   const [login] = useLoginMutation();
   const navigateTo = useNavigate();
-
   const form = useForm({
     initialState,
     onSubmit,

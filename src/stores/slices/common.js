@@ -21,7 +21,10 @@ const commonSlice = createSlice({
   },
 });
 
-export const { setTitleAction, setFormErrorAction, clearFormErrorAction } =
-  commonSlice.actions;
+export const {
+  setTitleAction,
+  setFormErrorAction,
+  clearFormErrorAction,
+} = commonSlice.actions;
 
 export default commonSlice.reducer;

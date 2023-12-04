@@ -1,11 +1,11 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
+import { createApi } from "@reduxjs/toolkit/dist/query/react";
+import { customBaseQuery } from "./customBaseQuery";
 
 const commonApi = createApi({
   reducerPath: "commonApi",
-  baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:5054/api",
-  }),
+  baseQuery: customBaseQuery,
   keepUnusedDataFor: 30,
+  credentials: true,
   endpoints: (build) => ({
     post: build.mutation({
       query: ({ data, url }) => {

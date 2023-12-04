@@ -17,7 +17,7 @@ const extendApi = commonApi.injectEndpoints({
         } catch (e) {
           const { error } = e;
           console.error(error.data.message);
-          dispatch(setFormErrorAction(error.data.message));
+          dispatch(setFormErrorAction(error?.data?.message));
         }
       },
     }),
@@ -34,11 +34,20 @@ const extendApi = commonApi.injectEndpoints({
           if (runSideEffects) runSideEffects();
         } catch (e) {
           const { error } = e;
-          dispatch(setFormErrorAction(error.data.message));
+          console.log(error);
+          dispatch(setFormErrorAction(error?.data?.message));
         }
       },
+    }),
+
+    refresh: build.mutation({
+      query: () => ({
+        url: "/user/refresh",
+        method: "GET",
+      }),
     }),
   }),
 });
 
-export const { useRegistrationMutation, useLoginMutation } = extendApi;
+export const { useRegistrationMutation, useLoginMutation, useRefreshMutation } =
+  extendApi;
