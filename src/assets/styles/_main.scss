@@ -7,23 +7,19 @@
 }
 
 html {
-    font-family: "Kanit", sans-serif;
-    font-weight: 400;
-    line-height: 100%;
-    font-size: 16px;
-    color: $main-dark;
+  font-family: "Kanit", sans-serif;
+  font-weight: 400;
+  line-height: 100%;
+  font-size: 16px;
+  color: $main-dark;
 }
 
 .centred-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    min-height: 100vh;
-    background-color: $secondary-green;
-    padding: 0 1rem;
-}
-
-.dashboard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  min-height: 100vh;
   background-color: $secondary-green;
+  padding: 0 1rem;
 }

@@ -3,7 +3,7 @@ import { Navigate } from "react-router-dom";
 import links from "../utils/links";
 
 export default function PrivateRoute({ children }) {
-  const auth = localStorage.getItem("auth");
+  const token = localStorage.getItem("token");
 
-  return auth ? children : <Navigate to={links.signin} />;
+  return token ? children : <Navigate to={links.signin} />;
 }

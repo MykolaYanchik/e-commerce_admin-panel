@@ -1,4 +1,4 @@
-import { setFormErrorAction } from "../slices/common";
+import { setFormErrorAction, setUserAction } from "../slices/common";
 import commonApi from "./index";
 
 const extendApi = commonApi.injectEndpoints({
@@ -12,7 +12,7 @@ const extendApi = commonApi.injectEndpoints({
       async onQueryStarted({ runSideEffects }, { dispatch, queryFulfilled }) {
         try {
           const { data } = await queryFulfilled;
-          localStorage.setItem("auth", data.accessToken);
+          console.log(data);
           if (runSideEffects) runSideEffects();
         } catch (e) {
           const { error } = e;
@@ -30,7 +30,8 @@ const extendApi = commonApi.injectEndpoints({
       async onQueryStarted({ runSideEffects }, { dispatch, queryFulfilled }) {
         try {
           const { data } = await queryFulfilled;
-          localStorage.setItem("auth", data.accessToken);
+          dispatch(setUserAction(data));
+          localStorage.setItem("token", data.token);
           if (runSideEffects) runSideEffects();
         } catch (e) {
           const { error } = e;
@@ -39,15 +40,19 @@ const extendApi = commonApi.injectEndpoints({
         }
       },
     }),
-
-    refresh: build.mutation({
-      query: () => ({
-        url: "/user/refresh",
-        method: "GET",
-      }),
+    getUser: build.query({
+      query: (token) => ({ url: `/user/${token}` }),
+      transformResponse: response => {
+        return response
+      },
+      async onQueryStarted({runSideEffects}, {dispatch, queryFulfilled}) {
+        const {data} = await queryFulfilled;
+        dispatch(setUserAction(data));
+        if (runSideEffects) runSideEffects();
+      }
     }),
   }),
 });
 
-export const { useRegistrationMutation, useLoginMutation, useRefreshMutation } =
+export const { useRegistrationMutation, useLoginMutation, useGetUserQuery } =
   extendApi;

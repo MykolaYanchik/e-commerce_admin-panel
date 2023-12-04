@@ -7,8 +7,8 @@ import Form from "./componetns/Form";
 
 export default function Auth() {
   useTitle("e-commerce | Login");
-  const auth = localStorage.getItem("auth");
-  if (auth) return <Navigate to={links.dashboard} />;
+  const token = localStorage.getItem("token");
+  if (token) return <Navigate to={links.dashboard} />;
   return (
     <section className="centred-section">
       <div className="auth-form-container">
