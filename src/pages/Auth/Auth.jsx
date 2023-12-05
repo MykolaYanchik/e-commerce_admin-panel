@@ -9,6 +9,7 @@ export default function Auth() {
   useTitle("e-commerce | Login");
   const token = localStorage.getItem("token");
   if (token) return <Navigate to={links.dashboard} />;
+  
   return (
     <section className="centred-section">
       <div className="auth-form-container">
